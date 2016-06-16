@@ -1,6 +1,3 @@
-p0001_multiple_of_3_and_5_test.py 2016-05-27 13:34:05 +0100
-p0002_fibonacci_sequence_test.py 2016-05-27 13:34:05 +0100
-p0003_prime_factors_test.py 2016-05-27 13:34:05 +0100
 p0004_palindrome_product_test.py 2016-05-27 13:34:05 +0100
 p0005_smallest_multiple_test.py 2016-05-27 13:34:05 +0100
 p0006_sum_square_difference_test.py 2016-05-27 13:34:05 +0100

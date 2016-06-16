@@ -1,0 +1,43 @@
+title: Craig Andrews
+description: Musings on my Github stuff
+author: Craig Andrews
+github: https://github.com/doozr
+about: I am a developer. I do code and things.
+disqus_shortname:
+google_analytics:
+
+enableTags: true
+tagarray: []
+
+collections:
+  project:
+    output: true
+    permalink: /project/:path/
+
+social:
+    - icon: fa-twitter
+      link: "https://twitter.com/craiga"
+
+share:
+  twitter_username: craiga
+  fb_appid:
+
+urls:
+    - text: About Me
+      url: /about/
+    - text: Projects
+      url: /projects/
+    - text: Github
+      url: https://github.com/doozr
+    - text: XML Feed
+      url: /feed.xml
+
+url: "https://doozr.github.io"
+baseurl: ""
+paginate: 20
+per_page: 20
+paginate_path: "/page:num/"
+markdown: kramdown
+gems:
+  - jekyll-paginate
+  - jekyll-gist

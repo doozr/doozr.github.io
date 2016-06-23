@@ -13,9 +13,11 @@ for problem 4.
 > 
 > Find the largest palindrome made from the product of two 3-digit numbers.
 
-Seems easy enough. Just need a way of figuring out if something is a palindrome and a way of generating all the numbers
-that are the product of two 3-digit numbers. Easy peasy. The naive solution.
+# The naive solution
 
+Seems easy enough. Just need a way of figuring out if something is a palindrome and a way of generating all the numbers
+that are the product of two 3-digit numbers. Easy peasy.
+ 
 {% highlight python %}
 def is_palindrome(x):
     s = str(x)
@@ -32,10 +34,14 @@ def palindrome_product(start, end):
 
 Perfect. The right answer pops out in a mere 760ms. Although it does seem a bit slow ...
 
+# Slightly cleverer solution
+
 After much experimentation I have assured myself that, ugly as it is, the `is_palindrome` function is about as fast
-as it can be in Python. Walking the string as I would in C is actually slower. The problem is the rest of it. It runs
-`(end - start) ** 2` iterations before it even starts to figure out which is highest. That's 810000 iterations.
-Just a bit excessive.
+as it can be in Python. Walking the string as I would in C is actually slower, and trying something clever with
+pulling individual digits out of the number with integer division and modulo is just silly.
+ 
+The problem is the rest of it. It runs `(end - start) ** 2` iterations before it even starts to figure out which is
+highest. That's 810000 iterations. Just a bit excessive.
 
 After much head scratching and experimenting with partitioning the search domain to try and find the right solution
 first rather than having to calculate all of them and call `max`, I determined that it's just not the sort of problem
@@ -69,6 +75,8 @@ Unfortunately it's a very imperative solution. I built a lovely recursive soluti
 variables or maintain state at all, but sadly it blew the stack up with every run. The question is whether is can
 be done using, as far as possible, generator expressions. The answer appears to be yes.
 
+# Most declarative functional solution (so far)
+
 The first thing to do is write a generator based function that yields a list of candidates.
 
 {% highlight python %}
@@ -76,7 +84,10 @@ from itertools import takewhile
 
 def _palindrome_products():
     lower_bound = start
-    still_valid = lambda n: n > lower_bound
+    
+    def still_valid(n):
+        return n > lower_bound
+
     for palindrome, new_lower_bound in ((x * y, min(x, y))
                                         for x in takewhile(still_valid, range(end, 0, -1))
                                         for y in takewhile(still_valid, range(end, 0, -1))
@@ -85,9 +96,9 @@ def _palindrome_products():
         lower_bound = new_lower_bound
 {% endhighlight %}
 
-This will yield a very short list of candidate values by generating candidate values along with a new lower limit.
-All we need to do in the horrible imperative bit is use the new lower bound and yield the actual answer. To get the
-actual solution to the problem, the highest palindromic number, all we do is wrap the whole thing in a call to `max`.
+This will yield a very short list of candidate values by generating candidate values along with a new lower bound.
+All we need to do in the horrible imperative bit is use the new lower bound and yield the candidate value. To get the
+actual answer to the problem, the highest palindromic number, all we do is wrap the whole thing in a call to `max`.
 
 {% highlight python %}
 def max_palindrome_product(start, end):

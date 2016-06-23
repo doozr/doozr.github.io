@@ -80,18 +80,22 @@ be done using, as far as possible, generator expressions. The answer appears to 
 The first thing to do is write a generator based function that yields a list of candidates.
 
 {% highlight python %}
+from euler.util import is_palindrome
 from itertools import takewhile
 
-def _palindrome_products():
-    lower_bound = start
-    
-    def still_valid(n):
-        return n > lower_bound
 
-    for palindrome, new_lower_bound in ((x * y, min(x, y))
-                                        for x in takewhile(still_valid, range(end, 0, -1))
-                                        for y in takewhile(still_valid, range(end, 0, -1))
-                                        if is_palindrome(x * y)):
+def palindrome_products(start, end):
+    lower_bound = start
+
+    def countdown():
+        return takewhile(lambda n: n > lower_bound, range(end, 0, -1))
+
+    candidates = ((x * y, min(x, y))
+                  for x in countdown()
+                  for y in countdown()
+                  if is_palindrome(x * y))
+
+    for palindrome, new_lower_bound in candidates:
         yield palindrome
         lower_bound = new_lower_bound
 {% endhighlight %}
@@ -102,11 +106,8 @@ actual answer to the problem, the highest palindromic number, all we do is wrap 
 
 {% highlight python %}
 def max_palindrome_product(start, end):
-    return max(_palindrome_products(start, end))
+    return max(palindrome_products(start, end))
 {% endhighlight %}
 
-And there we have it. In practice `_palindrome_products` can be defined inside `max_palindrome_product` to close over
-the `start` and `end` arguments. It doesn't have much utility of its own due to the constantly changing lower bound.
- 
-This is the closest I can get to a non-imperative solution that only has a bit of state attached. It returns the
-correct answer of *906609* in a mere *20ms*, so that's better at least.
+And there we have it. This is the closest I can get to a non-imperative solution that only has a bit of state attached.
+It returns the correct answer of *906609* in a mere *20ms*, so that's better at least.

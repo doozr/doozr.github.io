@@ -110,4 +110,6 @@ def max_palindrome_product(start, end):
 {% endhighlight %}
 
 And there we have it. This is the closest I can get to a non-imperative solution that only has a bit of state attached.
-It returns the correct answer of *906609* in a mere *20ms*, so that's better at least.
+It returns the correct answer of *906609* in a mere *20ms*, so that's better at least. A quick modification to
+candidates to make it emit every possibility indicates that a total of 9930 calculations were performed, or 1.2% of
+the original implementation.

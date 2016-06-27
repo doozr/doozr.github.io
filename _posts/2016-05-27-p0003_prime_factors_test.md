@@ -27,33 +27,33 @@ uses.
 
 Here is my sieve of Eratosthenes.
 
-{% highlight python %}
-def sieve(upper_bound):
-    marked = [0] * upper_bound
-    yield 2
-    for value in (x for x in range(3, upper_bound, 2) if marked[x] == 0):
-        yield value
-        for i in range(value, upper_bound, value):
-            marked[i] = 1
-{% endhighlight %}
+    {% highlight python %}
+    def sieve(upper_bound):
+        marked = [0] * upper_bound
+        yield 2
+        for value in (x for x in range(3, upper_bound, 2) if marked[x] == 0):
+            yield value
+            for i in range(value, upper_bound, value):
+                marked[i] = 1
+    {% endhighlight %}
 
 This function has proved useful in other problems, and is in `euler.prime`.
 
 The terrible implementation is as follows.
 
-{% highlight python %}
-from math import sqrt
-from euler.prime import sieve
+    {% highlight python %}
+    from math import sqrt
+    from euler.prime import sieve
 
 
-def reverse_primes(start):
-    return reversed(list(sieve(start)))
+    def reverse_primes(start):
+        return reversed(list(sieve(start)))
 
 
-def highest_prime_factor(x):
-    limit = int(sqrt(x) + 1)
-    return next(y for y in reverse_primes(limit) if not x % y)
-{% endhighlight %}
+    def highest_prime_factor(x):
+        limit = int(sqrt(x) + 1)
+        return next(y for y in reverse_primes(limit) if not x % y)
+    {% endhighlight %}
 
 It calculates the highest prime of 600851475143 in a mere 240ms. Amazing.
 
@@ -68,20 +68,20 @@ point where I did it without really thinking it through.
 The next thing to do, then, is write a function that calculates prime factors.
 This I did, and it looks like this.
 
-{% highlight python %}
-def prime_factors(n):
-    if n == 2 or n == 3:
-        yield n
-        return
-    i = 2
-    while i * i < n:
-        while n % i == 0:
-            n /= i
-            yield i
-        i += 1
-    if n > 1:
-        yield n
-{% endhighlight %}
+    {% highlight python %}
+    def prime_factors(n):
+        if n == 2 or n == 3:
+            yield n
+            return
+        i = 2
+        while i * i < n:
+            while n % i == 0:
+                n /= i
+                yield i
+            i += 1
+        if n > 1:
+            yield n
+    {% endhighlight %}
 
 What's this? Mutable state? Iteration? This isn't very functional! Well, no. But
 it's because I hit one of the big stumbling blocks; no tail call optimisation. I
@@ -98,28 +98,28 @@ just use a `[-1]` index, but it seems wasteful of memory. A simple reduce that
 returns the last value it encounters would take less. So here are a couple of
 handy functions that live in `euler.iter`.
 
-{% highlight python %}
-def first(seq):
-    return next(iter(seq))
+    {% highlight python %}
+    def first(seq):
+        return next(iter(seq))
 
 
-def last(seq):
-    return reduce(lambda a, x: x, iter(seq))
-{% endhighlight %}
+    def last(seq):
+        return reduce(lambda a, x: x, iter(seq))
+    {% endhighlight %}
 
 Now we can very easily calculate our answer.
 
-{% highlight python %}
-from euler.prime import prime_factors
-from euler.iter import last
+    {% highlight python %}
+    from euler.prime import prime_factors
+    from euler.iter import last
 
 
-def highest_prime_factor(n):
-    return last(prime_factors(n))
+    def highest_prime_factor(n):
+        return last(prime_factors(n))
 
 
-def test_0003_prime_factors():
-    assert highest_prime_factor(600851475143) == 6857
-{% endhighlight %}
+    def test_0003_prime_factors():
+        assert highest_prime_factor(600851475143) == 6857
+    {% endhighlight %}
 
 It correctly calculates the answer of *6857* in a far more satisfying *1ms*.

@@ -27,37 +27,37 @@ one most useful thing, but it's the start of potentially many exciting functions
 I can call upon when required. This one is in the `euler` package in the
 `math` module.
 
-{% highlight python %}
-def fib():
-    x = 0
-    y = 1
-    yield y
-    while True:
-        x, y = y, x + y
+    {% highlight python %}
+    def fib():
+        x = 0
+        y = 1
         yield y
-{% endhighlight %}
+        while True:
+            x, y = y, x + y
+            yield y
+    {% endhighlight %}
 
 To test it let's take all the Fibonacci values up to 60.
 
-{% highlight python %}
->>> list(takewhile(lambda x: x < 60, fib()))
-[1, 2, 3, 5, 8, 13, 21, 34, 55]
-{% endhighlight %}
+    {% highlight python %}
+    >>> list(takewhile(lambda x: x < 60, fib()))
+    [1, 2, 3, 5, 8, 13, 21, 34, 55]
+    {% endhighlight %}
 
 So far, so good. And in fact we can use this exact technique to get all the
 values under four million.
 
-{% highlight python %}
-from itertools import takewhile
-from euler.math import fib
+    {% highlight python %}
+    from itertools import takewhile
+    from euler.math import fib
 
 
-def sum_fib_evens(limit):
-    return sum(x for x in takewhile(lambda y: y < limit, fib()) if not x % 2)
+    def sum_fib_evens(limit):
+        return sum(x for x in takewhile(lambda y: y < limit, fib()) if not x % 2)
 
 
-def test_0002_fibonacci_sequence():
-    assert sum_fib_evens(4000000) == 4613732
-{% endhighlight %}
+    def test_0002_fibonacci_sequence():
+        assert sum_fib_evens(4000000) == 4613732
+    {% endhighlight %}
 
 The answer is *4613732* and it takes *1ms* to work that out.

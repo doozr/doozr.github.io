@@ -66,3 +66,5 @@ Thanks to the RWH sieve the speed has increased somewhat. The correct answer
 of `142913828922` is reached in a mere `138ms`. Better, but not great. I may
 revisit later when I get my head around wheel factorisation.
 
+*Bonus:* Changing the prime generator code has sped problem 7 up from
+*46ms* to a tiny *12ms*. Good stuff.

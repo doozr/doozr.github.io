@@ -2,7 +2,7 @@
 layout: post
 title: "Problem 2 - Fibonacci sequence"
 date: 2016-05-27 11:51:50 +0100
-categories: [python]
+categories: [python,euler]
 ---
 
 The second problem is another classic, this time in the form of the Fibonacci

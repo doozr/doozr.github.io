@@ -2,7 +2,7 @@
 layout: post
 title: "Problem 3 - Prime factors"
 date: 2016-05-27 13:34:05 +0100
-categories: [python]
+categories: [python,euler]
 ---
 
 Problem 3, then, and we're into something a bit more number-crunchy.

@@ -2,7 +2,7 @@
 layout: post
 title: "Problem 5 - Smallest multiple"
 date: 2016-05-31 08:40:13 +0100
-categories: [python]
+categories: [python,euler]
 ---
 
 Problem 4 gave us an interesting performance issue to chew on. Problem 5 does not

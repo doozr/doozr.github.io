@@ -2,7 +2,7 @@
 layout: post
 title: "Problem 9 - Special Pythagorean triple"
 date: 2016-05-31 12:15:06 +0100
-categories: [python]
+categories: [python,euler]
 ---
 
 Back to the more straightforward now for problem 9. We have to find a

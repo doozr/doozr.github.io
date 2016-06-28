@@ -2,7 +2,7 @@
 layout: post
 title: "Problem 6 - Sum square difference"
 date: 2016-05-31 09:14:43 +0100
-categories: [python]
+categories: [python,euler]
 ---
 
 Problem 6 is really trivial and there's not a lot to say.

@@ -2,7 +2,7 @@
 layout: post
 title: "Problem 1 - Multiples of 3 and 5"
 date: 2016-05-27 11:35:51 +0100
-categories: [python]
+categories: [python,euler]
 ---
 
 As suspected, the first few questions were not taxing. The first is a fairly

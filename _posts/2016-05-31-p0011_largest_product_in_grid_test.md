@@ -2,7 +2,7 @@
 layout: post
 title: "Problem 11 - Largest product in grid"
 date: 2016-05-31 17:34:12 +0100
-categories: [python]
+categories: [python,euler]
 ---
 
 Problem 11 brings the most interesting bit of list processing so far.

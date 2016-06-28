@@ -2,7 +2,7 @@
 layout: post
 title: "Problem 8 - Larges product in series"
 date: 2016-05-31 11:16:48 +0100
-categories: [python]
+categories: [python,euler]
 ---
 
 Problem 8 presents a new type of problem to solve involving splitting a sequence

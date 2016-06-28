@@ -2,7 +2,7 @@
 layout: post
 title:  "Project Euler in Python"
 date:   2016-05-26 18:00:00 +0100
-categories: [python]
+categories: [python,euler]
 ---
 Today I have decided to start Project Euler from the beginning, this time entirely
 in Python. I've done some of Project Euler before in a mix of Perl, C, Scala and

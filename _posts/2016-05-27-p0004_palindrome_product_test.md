@@ -2,7 +2,7 @@
 layout: post
 title: "Problem 4 - Palindrome product"
 date: 2016-05-27 14:16:34 +0100 
-categories: [python]
+categories: [python,euler]
 ---
 
 After the number crunching of problem 3 it seems we're back in the realms of "interview questions from the nineties"

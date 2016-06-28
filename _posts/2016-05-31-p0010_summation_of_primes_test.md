@@ -2,7 +2,7 @@
 layout: post
 title: "Problem 10 - Summation of primes"
 date: 2016-05-31 13:12:37 +0100
-categories: [python]
+categories: [python,euler]
 ---
 
 Back on the primes for problem 10. Could be an interesting speed issue.

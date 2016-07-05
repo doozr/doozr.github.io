@@ -698,7 +698,8 @@ day or two, honed into what I think is pretty good shape.
 
 And the weird thing is, tiny as the language and standard library may be,
 I implemented the whole thing without any third party packages at all. The
-only thing I used outside the standard library was `golang.org/x/net/websocket`.
+only thing I used outside the standard library was `golang.org/x/net/websocket`;
+a first party extension.
 
 I was even happy with the Euler implementations, annoyingly, after
 agonising so long over the Python ones.

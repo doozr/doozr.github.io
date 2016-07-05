@@ -52,7 +52,7 @@ providing none of its elegance. There is a
 ## That was then ...
 
 So here we are in the 10s. We've learned a thing or two. Old style programming
-is making a comeback. Lisp, Clogure, Elm, Elixir, Erlang, Scheme, Haskell, F#
+is making a comeback. Lisp, Clojure, Elm, Elixir, Erlang, Scheme, Haskell, F#
 and the like are reclaiming, and sometimes literally reviving, older languages
 for the modern age.
 

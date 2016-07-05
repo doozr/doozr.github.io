@@ -665,8 +665,9 @@ lines regularly while looking for Go related hints and tips:
 > No, Go doesn't need generics; multiple implementations for each type are easy to write
 dd
 
-And, my favourite, found in a Google Group chat some time ago when asked why Go
-doesn't support aforementioned generics and list processing primitives:
+And, my favourite, paraphrased from a comment in a Google Group chat some
+time ago when asked why Go doesn't support aforementioned generics and list
+processing primitives:
 
 > Anyone would think that coders weren't being paid to code. Of course they are!
 > That's why Go gives coders the ability to write lots of code. That's what

@@ -22,13 +22,19 @@ natively and are so well supported is great. And the fact that even imperative
 algorithms that very much follow a *while this do this then this* pattern can
 be integrated with a tactical `yield` is great.
 
-There does seem a lot missing though. This may be a philosophical thing; Python
-has never been billed as a language strong in list processing. Given
-its dedication to generators and comprehensions, its (for me) killer feature that
-allows truly lazy evaluation of infinite lists to be combined and manipulated, it
-seems odd. It's clearly most of the way there, if only using functions in some of
-the `*tools` modules. Here are a list of iterator functions I had to write for myself
-over the course of 46 Euler problems.
+There does seem a lot missing though. This may be a philosophical thing; as far
+as I can tell Python begrudgingly gives in to functional and list-based 
+programming by having the `functools` and `itertools`. Given its dedication to
+generators and comprehensions, its (for me) killer feature that allows truly lazy
+evaluation of infinite lists to be combined and manipulated, it seems odd.
+
+Python is clearly most of the way there to being a proper list processing type
+of language, except perhaps in its disastrously poor support for recursion due
+to a lack of tail call optimisation and a tiny stack.
+
+To get the job done on the Euler problems I wrote various helper functions to
+lazily generate the various streams of data I needed. Here are a list of iterator
+functions I had to write for myself over the course of 46 Euler problems.
 
 * `get_at(n, seq)` - Get the value at offset n of a non-indexed sequence
 * `take(n, seq)` - Get the first n values in a sequence
@@ -47,7 +53,7 @@ over the course of 46 Euler problems.
 * `last(seq)` - Get the last element of a sequence
 
 At least some of these should, I think, be in `itertools` or a similar
-module. Others I didn't need but come in useful would be `head` and `tail` to
+module. Others I didn't need but would come in useful include `head` and `tail` to
 yield, respectively, all but the last and all by the first element.
 
 The interesting thing about all these functions is that none of them are

@@ -309,7 +309,8 @@ and output type on the function itself. Like this.
     }
     {% endhighlight %}
 
-And that's assuming your iterable interface allows for indexed access.
+`head()` and `tail()` would return the first, and all but the first,
+elements respectively.
 
 The code above is not valid Go, and it is not possible to have generic
 functions. Everything must be utterly bespoke to the task at hand, so

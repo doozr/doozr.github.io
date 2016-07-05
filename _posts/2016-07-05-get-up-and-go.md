@@ -121,7 +121,7 @@ To experiment with Go code of my own, and to see how it deals with such
 list-based things as pretty much every Euler problem, I created
 [Geuler](https://github.com/doozr/geuler). I wanted Euler.go to complement
 Euler.py but that caused the compiler to throw a wobbly because it kept
-trying to compile itself.
+trying to compile directories and binaries as code.
 
 I implemented the first 10 Euler problems just to get a feel for it, and
 just for a laugh I made them all run at the same time by running each one

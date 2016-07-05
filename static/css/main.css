@@ -37,12 +37,14 @@ h2 {
     font-weight: normal;
     margin-bottom: 5px;
     color: #666666;
+    font-size:21px;
 }
-        
+
 h3 {
-    font-weight: normal;
+    font-weight: bold;
     margin-bottom: 5px;
     color: #666666;
+    font-size: 18;
 }
 
 a, a:link, a:active {
@@ -74,7 +76,7 @@ div.right {
     width: 500px;
     float: left;
 }
-           
+
 div.content {
     border-top: 1px solid #E6E6E6;
     margin-top: 5px;

@@ -54,7 +54,7 @@ functions I had to write for myself over the course of 46 Euler problems.
 
 At least some of these should, I think, be in `itertools` or a similar
 module. Others I didn't need but would come in useful include `head` and `tail` to
-yield, respectively, all but the last and all by the first element.
+yield, respectively, all but the last and all but the first element.
 
 The interesting thing about all these functions is that none of them are
 imperative generators. Rather, the are combinations and reuse of existing

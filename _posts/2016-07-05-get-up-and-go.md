@@ -559,7 +559,7 @@ do the increment?
     {% endhighlight %}
     
 Not the most exciting example, but indicative of what methods are in Go. Just
-functions that happen, but coincidence, to be called in a postfix position on
+functions that happen, by coincidence, to be called in a postfix position on
 variables of a given type.
 
 Not at all like classes. No. Honest.
@@ -652,47 +652,6 @@ is very important, I think it's a good trade off.
 Of course within each community trends crop up. I've seen arguments along these
 lines regularly while looking for Go related hints and tips:
 
-> No, Go doesn't need iterators; for loops are easy to write
-
-> No, Go doesn't need assertions; ifs are easy to write
-
-> No, Go doesn't need generics; multiple implementations for each type are easy to write
-
-> No, Go doesn't need a more capable standard library; writing your own is easy
-
-And, my favourite, found in a Google Group chat some time ago when asked why Go
-doesn't support aforementioned generics and list processing primitives:
-
-> Anyone would think that coders weren't being paid to code. Of course they are!
-> That's why Go gives coders the ability to write lots of code. That's what
-> they are for! Just use for loops and stop complaining!
-
-I'm sure the attitude issues of the community (let's face it, IT communities
-have a well deserved terrible reputation) are not shared by the Go team,
-but that's what you see on Stack Overflow. But it's no worse than Apple
-zealots who simply can't comprehend *why* you'd need a feature that Steve had
-obviously removed for a *very good if entirely unfathomable reason*.
-
-I might have to give this one to the "For" camp.
-
-**For** 8 - 3 **Against**
-
-# Personal Opinion
-
-So this is Go. A programming language. It has a lot going for it, for sure.
-The fact I learned the whole thing, including weirdness like tags on
-structs when parsing JSON, in about 3 hours is impressive. And being able to
-grok the type system and the use of channels is minutes is, I'm sure,
-a credit to the language and tooling more than my addled brain.
-
-And as much as it pains me to say it, I've actually quite enjoyed coding
-with it. The [Qbot](https://github.com/doozr/bot) was thrown together in
-a very rough form with hardly any thought to structure and, slowly, over a
-day or two, honed into what I think is pretty good shape.
-
-And the weird thing is, tiny as the language and standard library may be,
-I implemented the whole thing without any third party packages at all. The
-only thing I used outside the standard library was `golang.org/x/net/websocket`.
 > No, Go doesn't need iterators; for loops are easy to write
 
 > No, Go doesn't need assertions; ifs are easy to write

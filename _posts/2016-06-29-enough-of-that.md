@@ -63,6 +63,9 @@ to the same extent, how Python could be a very effective list processing
 language using semantically relevant function names rather than having to
 recognise patterns in imperative loops.
 
+Have a look at the implementations in [euler/iter.py](https://github.com/doozr/euler.py/blob/master/euler/iter.py)
+and marvel at how quickly I got bored with writing docstrings.
+
 On the subject of imperative loops, my next mountain to climb is one that I
 have been avoiding for some years now; Go. Everything about its philosophy
 rubs me up the wrong way, so it will be interesting to see how I get on.

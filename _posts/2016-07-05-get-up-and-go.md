@@ -28,7 +28,7 @@ Over the last few years I've noticed a distinct trend in programming language
 development. Well, a couple of trends. The first is that the mainstream (and
 less mainstream) ones are becoming more and more alike. Java 8, C#, Swift are 
 all so similar. And depending on your background you'll see they're similar
-also to Scala, or Python, or Ruby, or F#, or whatever your poison.
+also to Scala, or Python, or Ruby, or whatever your poison.
 
 The second trend is that, in fact, many of the problems we've solved in the
 last decade only appeared the decade before. Tail call optimisation,
@@ -37,7 +37,7 @@ code-as-data, microservices; all these things existed in the 80s. They are
 not 00s developments. We just forgot because the 90s were a terrible, terrible
 time for software development.
 
-What happened in the 90s? C++, Java and OOP took hold. It was a bloodbath.
+What happened in the 90s? C++, Java and OOP took hold. It was awful.
 Good practice thrown out in favour of this "obvious" improvement to software
 development. Oh, and XML. Reinventing SGML one feature at a time while
 providing none of its elegance. There is a
@@ -56,12 +56,13 @@ is making a comeback. Lisp, Clojure, Elm, Elixir, Erlang, Scheme, Haskell, F#
 and the like are reclaiming, and sometimes literally reviving, older languages
 for the modern age.
 
-Go is the antithesis of this. It doesn't do abstraction. It doesn't do code
-that describes what it does, not how it does it. It actively avoids
-immutability or statelessness. It looks like C with less of the memory
-management, and only a small fraction of the keywords. Sure, it avoids the
-pitfalls of OOP, but at what cost? It's surely a toy language built for
-people who would rather write *more* code, not less, to get things done?
+Go is the antithesis of this. It doesn't do abstraction. At least, not in
+the way OOP enthusiasts mean it. It doesn't do code that describes what, only
+how. It actively avoids immutability or statelessness. It looks like C with
+less of the memory management, and only a small fraction of the keywords.
+Sure, it avoids the pitfalls of OOP, but at what cost? It's surely a toy
+language built for people who would rather write *more* code, not less, to
+get things done?
 
 # How to get started
 
@@ -154,6 +155,8 @@ EverythingIsSquashedIntoSingleBlocksOfCharacters.
 ItIsRidiculouslyHardToReadThem.  
 IDoNotCareWhatAnyoneSays.
 
+That's a mark Against.
+
 **For** 2 - 1 **Against**
 
 # For the love of loops
@@ -178,7 +181,7 @@ two values, one of which is the index. If you don't want the index,
 you have to assign it to `_`. It feels messy. Also I constantly forget
 and end up iterating over indices of arrays rather than values.
 
-So it does support some sort of list processing! All the talk I heard
+So it does support some sort of list processing. All the talk I heard
 made me think I'd need to have loads of index variables littering my
 code for every loop I build.
 
@@ -520,6 +523,8 @@ more code so why not just do it" is very evident. But on the other hand
 all this is built in and so provides zero opportunity for mucking up. And
 it does so little that it can be customised to the Nth degree.
 
+I'll give a point to **For**.
+
 **For** 5 - 3 **Against**
 
 # Bound functions
@@ -535,7 +540,7 @@ Consider this:
     type MyCounter int
     
     func Increment(c MyCounter, n int) MyCounter {
-        return c++
+        return c += n
     }
     
     c := MyCounter(2)
@@ -550,7 +555,7 @@ do the increment?
     type MyCounter int
     
     func (c MyCounter) Increment(n int) MyCounter {
-        return c++
+        return c += n
     }
     
     c := MyCounter(2)
@@ -561,8 +566,6 @@ do the increment?
 Not the most exciting example, but indicative of what methods are in Go. Just
 functions that happen, by coincidence, to be called in a postfix position on
 variables of a given type.
-
-Not at all like classes. No. Honest.
 
 It also supports pointers (more on that later) so it is possible to pass
 by reference and update in place. An in-place updating int.
@@ -576,7 +579,7 @@ by reference and update in place. An in-place updating int.
 
     c := MyCounter(2)
     c.Increment(3)
-    c == 5
+    *c == 5
     {% endhighlight %}
 
 Of course, my feelings on mutable state are well known, but it's possible.
@@ -606,7 +609,8 @@ lot of convention around the build tooling.
 
 It's not the worst layout, but the weird `$GOPATH` thing where all of
 your Go projects and all of their dependencies exist in one gigantic
-directory structure seems weird. That said, it makes managing it easier.
+directory structure seems weird. And having your public facing source control
+in the project name is just bizarre. That said, it makes managing it easier.
 
 I just think they missed a trick by not calling it `$GOHOME`.
 
@@ -656,9 +660,10 @@ lines regularly while looking for Go related hints and tips:
 
 > No, Go doesn't need assertions; ifs are easy to write
 
-> No, Go doesn't need generics; multiple implementations for each type are easy to write
+> No, Go doesn't need a bigger standard library; functions are easy to write
 
-> No, Go doesn't need a more capable standard library; writing your own is easy
+> No, Go doesn't need generics; multiple implementations for each type are easy to write
+dd
 
 And, my favourite, found in a Google Group chat some time ago when asked why Go
 doesn't support aforementioned generics and list processing primitives:
@@ -722,4 +727,4 @@ easy to get into a complete and twisted mess put me off.
 
 Am I conceding to actually liking Go? Like, a lot?
 
-Might be. Can't prove it.
+Might be. What of it?

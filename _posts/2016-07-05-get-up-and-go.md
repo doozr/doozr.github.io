@@ -406,8 +406,8 @@ the function that created it.
         taken = make(chan int)
         go func() {
             for x := 0; x < n; x++ {
-                v := <- ch
-                taken <- v
+                // Do you like my double arrow?
+                taken <- <- ch
             }
             close(taken)
         }()

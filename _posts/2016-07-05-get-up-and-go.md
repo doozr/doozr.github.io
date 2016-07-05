@@ -372,7 +372,7 @@ sequences.
 
 The trick is to return a channel that is written to by a goroutine that
 closes over it. This puts control of closing the channel in the control of
-a single channel.
+the function that created it.
 
     {% highlight go %}
     // This generator is infinite

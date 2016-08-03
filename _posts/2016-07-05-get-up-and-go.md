@@ -19,14 +19,14 @@ to read it is, and how great the tooling is.
 
 Other people rave about how much of a regression it is. How it focuses on
 coders typing code, not coders getting things done. How it nonchalantly
-discards years of programming language development because some people are 
+discards years of programming language development because some people are
 just really nostalgic for the 80s.
 
 ## I'm so trendy
 
 Over the last few years I've noticed a distinct trend in programming language
 development. Well, a couple of trends. The first is that the mainstream (and
-less mainstream) ones are becoming more and more alike. Java 8, C#, Swift are 
+less mainstream) ones are becoming more and more alike. Java 8, C#, Swift are
 all so similar. And depending on your background you'll see they're similar
 also to Scala, or Python, or Ruby, or whatever your poison.
 
@@ -150,9 +150,9 @@ A lot of this stuff I don't mind. In a modern editor, tabs v spaces
 is neither here nor there. Curlies are managed automatically. And
 I never much cared for parens around ifs.
 
-But ... it uses CamelCase. Everywhere.  
-EverythingIsSquashedIntoSingleBlocksOfCharacters.  
-ItIsRidiculouslyHardToReadThem.  
+But ... it uses CamelCase. Everywhere.
+EverythingIsSquashedIntoSingleBlocksOfCharacters.
+ItIsRidiculouslyHardToReadThem.
 IDoNotCareWhatAnyoneSays.
 
 That's a mark Against.
@@ -196,21 +196,21 @@ when I find that I'm writing the same basic three a lot:
     for _, x := range inputs {
         total *= x
     }
-    
+
     // doubled = [x * 2 for x in inputs]
-    doubled make([]int, len(inputs))
+    doubled := make([]int, len(inputs))
     for i, x := range inputs {
         doubled[i] = x * 2
     }
-    
+
     // filtered = [x for x in inputs if x % 2 == 0]
-    filtered = make([]int, 0)
+    filtered := make([]int, 0)
     for _, x in range inputs {
         filtered = append(filtered, x * 2)
     }
     {% endhighlight %}
 
-And of course if I combine them it gets messier ...
+And of course I can combine them ...
 
     {% highlight go %}
     // doubled_events = (x * 2 for x in inputs if x % 2 == 0)
@@ -222,13 +222,13 @@ And of course if I combine them it gets messier ...
         }
     }
     {% endhighlight %}
-    
+
 I'm sure that this is entirely subjective. Some will prefer the commented out
 Python because it describes *what* it's trying to achieve:
- 
+
     double the value of each even number in input
     find the product of the doubled evens
-    
+
 whereas the Go describes *how* it achieves it:
 
     for every value in range check if it is even
@@ -251,7 +251,7 @@ mutable state:
         return inputs[0] * product(inputs[1:])
     }
     {% endhighlight %}
-    
+
 It ends up slightly longer, and just as single purpose. More on that later.
 
 **For** 2 - 2 **Against**
@@ -273,7 +273,7 @@ Consider this simple implementation of reduce:
         return fn(inputs[0], reduce(fn, inputs[1:], accumulator))
     }
     {% endhighlight %}
-    
+
 Looks good, right? Wrong. It has a subtle bug. It only works for
 commutative operators. If `fn` depends on the order of the list to get
 the right answer, it will be wrong because it actually iterates backwards.
@@ -288,7 +288,7 @@ A better version is:
         return reduce(fn, inputs[1:], fn(accumulator, inputs[0]))
     }
     {% endhighlight %}
-    
+
 See the difference? I said it was subtle. And that's the problem with
 roll-your-own. It's very easy to make very basic mistakes. You want
 a decent standard library to do this for you.
@@ -492,7 +492,7 @@ would do something like this:
     {% highlight go %}
     assert(expected == actual, "Should have been " + actual)
     {% endhighlight %}
-    
+
 you actually do this:
 
     {% highlight go %}
@@ -500,7 +500,7 @@ you actually do this:
         t.Errorf("Should have been %s", actual)
     }
     {% endhighlight %}
-    
+
 Is it the end of the world, having to type an if every time? Maybe not, but
 it doesn't half make the tests look a mess. That said, it also forced me
 to wrap basic asserts in more semantically meaningful helper functions.
@@ -515,7 +515,7 @@ I could instead use:
     {% highlight go %}
     assertWrappedInArray(arr, value)
     {% endhighlight %}
-    
+
 A lot more useful.
 
 I'm a bit torn on this. The craptacular attitude of "it's not hard to write
@@ -538,11 +538,11 @@ Consider this:
 
     {% highlight go %}
     type MyCounter int
-    
+
     func Increment(c MyCounter, n int) MyCounter {
         return c += n
     }
-    
+
     c := MyCounter(2)
     c = Increment(c, 3)
     c == 5
@@ -553,16 +553,16 @@ do the increment?
 
     {% highlight go %}
     type MyCounter int
-    
+
     func (c MyCounter) Increment(n int) MyCounter {
         return c += n
     }
-    
+
     c := MyCounter(2)
     c = c.Increment(3)
     c == 5
     {% endhighlight %}
-    
+
 Not the most exciting example, but indicative of what methods are in Go. Just
 functions that happen, by coincidence, to be called in a postfix position on
 variables of a given type.
@@ -629,7 +629,7 @@ The philosophy of Go is very nicely summed up in the FAQ on
 > debate with a compiler. Who'd have guessed sophistication bought such noise?”
 > The sophistication is worthwhile — no one wants to go back to the old languages
 > — but can it be more quietly achieved?
-> 
+>
 > Go attempts to reduce the amount of typing in both senses of the word. Throughout
 > its design, we have tried to reduce clutter and complexity. There are no forward
 > declarations and no header files; everything is declared exactly once.
@@ -639,7 +639,7 @@ The philosophy of Go is very nicely summed up in the FAQ on
 > radically, there is no type hierarchy: types just are, they don't have to announce
 > their relationships. These simplifications allow Go to be expressive yet
 > comprehensible without sacrificing, well, sophistication.
-> 
+>
 > Another important principle is to keep the concepts orthogonal. Methods can be
 > implemented for any type; structures represent data while interfaces represent
 > abstraction; and so on. Orthogonality makes it easier to understand what happens
@@ -718,7 +718,7 @@ Other things I like about Go include:
 This would be a conclusion but after this pointless waffle for 5000 words I
 think concussion fits better. The conclusion is that despite many, many
 misgivings I actually quite like Go. I like how it just gets out of the way.
- 
+
 I used to think this of Javascript. Looking back I see that was just because
 Javascript is not as bad as PHP. I quite like Python, but concurrency is
 a pain and for modern systems programming it's a must. I know there are...

@@ -544,8 +544,7 @@ Consider this:
     type MyCounter int
 
     func Increment(c MyCounter, n int) MyCounter {
-        c += MyCounter(n)
-        return c
+        return c + MyCounter(n)
     }
 
     c := MyCounter(2)
@@ -560,8 +559,7 @@ do the increment?
     type MyCounter int
 
     func (c MyCounter) Increment(n int) MyCounter {
-        c += MyCounter(n)
-        return c
+        return c + MyCounter(n)
     }
 
     c := MyCounter(2)

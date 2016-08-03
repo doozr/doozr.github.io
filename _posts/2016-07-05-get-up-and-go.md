@@ -56,7 +56,7 @@ is making a comeback. Lisp, Clojure, Elm, Elixir, Erlang, Scheme, Haskell, F#
 and the like are reclaiming, and sometimes literally reviving, older languages
 for the modern age.
 
-Go is the antithesis of this. It doesn't do abstraction. At least, not in
+Go is the antithesis of OOP. It doesn't do abstraction. At least, not in
 the way OOP enthusiasts mean it. It doesn't do code that describes what, only
 how. It actively avoids immutability or statelessness. It looks like C with
 less of the memory management, and only a small fraction of the keywords.

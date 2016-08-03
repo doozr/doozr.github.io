@@ -232,7 +232,7 @@ Python because it describes *what* it's trying to achieve:
 whereas the Go describes *how* it achieves it:
 
     for every value in range check if it is even
-    if it is even multiply the total by the double the value
+    if it is even multiply the total by double the value
 
 I don't think there will ever be consensus on which is better but my
 personal preference is the former. Also note that the Python version

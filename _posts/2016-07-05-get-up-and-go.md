@@ -239,16 +239,20 @@ personal preference is the former. Also note that the Python version
 uses a generator expression for lazy evaluation so the list of doubled
 even inputs never actually exists. It just gets generated on demand.
 
-Of course, we could write reduce to use recursion so we at least avoid
+Of course, we could write it to use recursion so we at least avoid
 mutable state:
 
     {% highlight go %}
-    // total = reduce(operator.mul, inputs, 1)
-    func product(inputs []int) int {
+    func ProductOfDoubledEvens(inputs []int) int {
         if len(inputs) == 0 {
             return 1
         }
-        return inputs[0] * product(inputs[1:])
+
+        if inputs[0]%2 == 0 {
+            return (2 * inputs[0]) * ProductOfDoubledEvens(inputs[1:])
+        } else {
+            return ProductOfDoubledEvens(inputs[1:])
+        }
     }
     {% endhighlight %}
 

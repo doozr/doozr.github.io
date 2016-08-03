@@ -667,7 +667,6 @@ lines regularly while looking for Go related hints and tips:
 > No, Go doesn't need a bigger standard library; functions are easy to write
 
 > No, Go doesn't need generics; multiple implementations for each type are easy to write
-dd
 
 And, my favourite, paraphrased from a comment in a Google Group chat some
 time ago when asked why Go doesn't support aforementioned generics and list

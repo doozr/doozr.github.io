@@ -213,7 +213,7 @@ when I find that I'm writing the same basic three a lot:
 And of course I can combine them ...
 
     {% highlight go %}
-    // doubled_events = (x * 2 for x in inputs if x % 2 == 0)
+    // doubled_evens = (x * 2 for x in inputs if x % 2 == 0)
     // total = reduce(operator.mul, doubled_evens, 1)
     total := 1
     for _, x := range inputs {

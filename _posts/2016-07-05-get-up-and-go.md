@@ -544,12 +544,13 @@ Consider this:
     type MyCounter int
 
     func Increment(c MyCounter, n int) MyCounter {
-        return c += n
+        c += MyCounter(n)
+        return c
     }
 
     c := MyCounter(2)
     c = Increment(c, 3)
-    c == 5
+    // c == 5
     {% endhighlight %}
 
 Fairly trivial. But what about being able to tell the MyCounter variable to
@@ -559,12 +560,13 @@ do the increment?
     type MyCounter int
 
     func (c MyCounter) Increment(n int) MyCounter {
-        return c += n
+        c += MyCounter(n)
+        return c
     }
 
     c := MyCounter(2)
     c = c.Increment(3)
-    c == 5
+    // c == 5
     {% endhighlight %}
 
 Not the most exciting example, but indicative of what methods are in Go. Just

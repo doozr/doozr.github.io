@@ -46,7 +46,7 @@ And consider a function that generates a receipt of line items from an array of 
 
 Pretty simple. Not much going on there. It's quite obvious that the function
 loops over the products, calculates the tax, creates a line item and adds it
-to the receipt. Not to difficult.
+to the receipt. Not too difficult. Not well factored, but a start.
 
 But business requirements happen. It turns into this.
 
@@ -168,8 +168,8 @@ How about this:
     	return true
     }
 
-    // CalculateTax calculates tax at the specified rate if applicable, or returns 0
-    func (product *Product) CalculateTax(taxRate int) int {
+    // Tax calculates tax at the specified rate if applicable, or returns 0
+    func (product *Product) Tax(taxRate int) int {
     	if !product.IsForSale() {
     		return 0
     	}
@@ -189,6 +189,30 @@ How about this:
     	receipt.Tax += line.Tax
     }
 
+    // Subtotal calculates the total price before tax
+    func (receipt *Receipt) Subtotal() (subtotal int) {
+        subtotal := 0
+        for _, line := receipt.Lines {
+            subtotal += product.Price
+        }
+        return
+    }
+
+    // Tax calculates the amount of tax
+    func (receipt *Receipt) Tax() (tax int) {
+        tax := 0
+        for _, line := receipt.Lines {
+            tax += product.Tax
+        }
+        return
+    }
+
+    // Total calculates the total including tax
+    func (receipt *Receipt) Total() (total int) {
+        total = receipt.Subtotal() + receipt.Tax()
+        return
+    }
+
     // GetReceipt creates a receipt with tax for the list of products given
     func GetReceipt(products []Product, taxRate int) (receipt Receipt) {
     	receipt = Receipt{make([]Line, 0), 0, 0}
@@ -198,7 +222,7 @@ How about this:
     			line := Line{
     				Name:  product.Name,
     				Price: product.Price,
-    				Tax:   product.CalculateTax(taxRate),
+    				Tax:   product.Tax(taxRate),
     			}
 
     			receipt.AddLine(line)

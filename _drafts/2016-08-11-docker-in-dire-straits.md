@@ -12,7 +12,9 @@ starting with basic images and adding more of the Docker tech stack over time.
 But more than that it's been an interesting experience taking a
 locked down environment and slowly opening it up to modern ways of working.
 
-# Dire Straits
+# Money For Nothing
+
+*Paying for a service you could do better yourself.*
 
 So you're going to deploy a new web application. I'm sure there are standard
 things that you may do to get that happening. Spinning up VMs in AWS, or in
@@ -49,7 +51,9 @@ there's no ETA.
 
 Pretty disheartening, I'm sure you'll agree.
 
-# Making Do
+# So Far Away
+
+*The gulf between our ambitions and our abilities.*
 
 Given that our project was in the very early stages of development, all we knew
 was that we had a node.js web application talking to a set of Python services.
@@ -68,11 +72,26 @@ on a number of external systems. To allow effective building of the application
 we needed to build mocks for all those systems, including stubbed HTTP APIs,
 databases and even an LDAP service.
 
+# Your Latest Trick
+
+*A way to separate code and infrastructure.*
+
 Enter Docker. A way to package up individual bits of our application and
 infrastructure into self-contained, immutable, consistent packages that can be
 deployed and run on other machines with relative ease.
 
-# Effect on development
+The advantages of building immutable, self-contained images that can be run and
+managed in the same way are many. You don't need multiple ways to find
+and manage log files. You don't need multiple ways to start processes and keep
+them running. You don't need multiple ways of specifying configuration. You
+don't need multiple ways of managing used and available ports.
+
+And most of all, you don't need to care what the underlying OS looks like as
+long as it's running a suitable version of the Docker engine.
+
+# Heavy Fuel
+
+*Changes to development of the application itself.*
 
 The effect on how the application was built was, in fact, not that huge. The
 vagrant VM was pretty standard, although we wouldn't normally use CentOS,
@@ -115,7 +134,9 @@ to the front-end API and databases directly allowing fixtures to be loaded
 and torn down without having to put support for such things directly into
 the application codebase.
 
-# Effect on deployment
+# Industrial Disease
+
+*Deploying to a multitude of environments.*
 
 The effect on deployment has been nothing but positive. By building the
 Docker images as the first step it's possible, by using the mocks and
@@ -189,7 +210,9 @@ In fact the script developed over time to be able to do things like override
 settings per host, disable or enable custom log drivers, and manipulate
 containers at a service, rather than image level.
 
-# Dealing with issues ahead of time
+# Walk Of Life
+
+*Dealing with issues ahead of time.*
 
 There were many issues we encountered while building the application on our
 CentOS Vagrant and AWS instances. The Docker version for CentOS at the time
@@ -216,7 +239,9 @@ The new Docker image signing functionality in recent versions should remove the
 need to pull by hash, but it's still a good way to make sure you only get the
 exact image you expect.
 
-# Actually rolling this thing out
+# Twisting By The Pool
+
+*Actually rolling this thing out.*
 
 Once the real VMs started appearing further complications obviously cropped up.
 No amount of mocks and testing can prepare you fully for connecting to an
@@ -225,7 +250,7 @@ minimised.
 
 ## Deploying to test
 
-The first deploy to test brought up a slew of problems related to talking to a
+Deploying to test brought up a slew of problems related to talking to a
 real database. The schema we were testing against wasn't quite right, the
 credentials didn't give us all the access we thought they would, and some of
 the schemas didn't have aliases we thought they might. But these problems
@@ -233,7 +258,7 @@ were fairly easily resolved, and testing was up and running.
 
 ## Deploying to staging
 
-The first deploys to the staging environment brought fresh challenges again. It
+Deploying to the staging environment brought fresh challenges again. It
 would be the first time we were mounting a real NFS mount into a Docker container
 and SELinux reared its ugly head.
 
@@ -246,13 +271,18 @@ quickly resolved there, too, and all was well.
 
 It worked!
 
-The first deployments to the production environment occurred 3 months after
+Deploying the MVP to the production environment occurred 3 months after
 switching to Docker, and they were utterly uneventful. We deployed the same
 images as we had already been deploying to test and staging, so we knew the
-dependencies were all there. We already knew what Oracle issues we were likely
-to hit and had sorted them out. It all worked smoothly, as well it should.
+dependencies were all there.
 
-# Conclusion
+A couple of months after that the full application was deployed.  We already
+knew what Oracle issues we were likely to hit and had sorted them out. It all
+worked smoothly, as well it should.
+
+# Sultans Of Swing
+
+*Yes, I've run out of relevant Dire Straits songs.*
 
 Given the limits discussed at the start of this post, I was sure getting this
 thing deployed was going to be a nightmare. But necessity is the mother of

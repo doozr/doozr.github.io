@@ -12,14 +12,18 @@ starting with basic images and adding more of the Docker tech stack over time.
 But more than that it's been an interesting experience taking a
 locked down environment and slowly opening it up to modern ways of working.
 
-# Money For Nothing
+# Tunnel Of Love
 
-*Paying for a service you could do better yourself.*
+*The ideal situation.*
 
 So you're going to deploy a new web application. I'm sure there are standard
 things that you may do to get that happening. Spinning up VMs in AWS, or in
 a private DC. Setting up configuration management, automating build and
 deploy processes, adding monitoring and management tools ... all good stuff.
+
+# Money For Nothing
+
+*Paying for a service you could do better yourself.*
 
 But what if none of that was possible?
 

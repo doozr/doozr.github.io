@@ -11,21 +11,20 @@ abstract the concept of logging inputs, outputs, formats and levels, they even
 abstract the concept of logging frameworks themselves. I'm looking at you, Slf4j
 (Simple(!) Logging Facade 4 Java).
 
-Go has an opinionated take on logging is this: there are only two log levels;
-stuff worth logging, and stuff you shouldn't log. There is a lot to be said for
-this, but maybe it goes a little too far? Go's logger has no concept of a log
-level so anything you log will be logged. It's good to have that certainty, but
-it could be nice to have developer-friendly debug output too.
+Go has an opinionated take on logging which is this: there are only two log
+levels; stuff worth logging, and stuff you shouldn't log. There is a lot to be
+said for this, but maybe it goes a little too far? Go's logger has no concept of
+a log level so anything you log will be logged. It's good to have that
+certainty, but it could be nice to have developer-friendly debug output too.
 
 ## On The Level
 
-There is a lot to be said for this concept of a flat logger. The traditional log
-levels can be confusing and muddled, and it's often hard to decide which log
-level to use for any given message.
+The traditional log levels can be confusing and muddled, and it's often hard to
+decide which log level to use for any given message:
 
 * **FATAL** Like *ERROR*, but bad enough to kill everything, and doesn't come back when you grep for *ERROR*.
 * **ERROR** Something has gone wrong and you should know about it.
-* **WARN** Is is less important than *ERROR* or more important than *INFO*? Who
+* **WARN** Is it less important than *ERROR* or more important than *INFO*? Who
 knows? Probably not the person who plumped for *WARN*.
 * **NOTICE** For info you still want after turning off *INFO* because somebody
 cluttered *INFO* up with *DEBUG* stuff.
@@ -65,8 +64,10 @@ Consider this function.
     func listen(client Client, ch chan Message,
                 done chan struct{}, wg *sync.WaitGroup) {
         jot.Print("Started forwardMessage")
-        defer jot.Print("Finished forwardMessage")
-        defer wg.Done()
+        defer func() {
+            jot.Print("Finished forwardMessage")
+            wg.Done()
+        }()
 
         for {
             select {
@@ -99,6 +100,6 @@ to see details of the exact data arriving.
 
 If you think Jot is useful have a look at the docs on the [github
 project](http://github.com/doozr/jot) and give it a whirl. I've been considering
-enabling the the standard Jotter for specific packages rather than a simple
-boolean, but haven't hit a real world use case for it yet. Any comments, bug
-reports, patches or ideas gratefully accepted.
+adding a feature that allows enabling the the standard Jotter only for specific
+packages rather than a on/off switch, but haven't hit a real world use case for
+it yet. Any comments, bug reports, patches or ideas gratefully accepted.

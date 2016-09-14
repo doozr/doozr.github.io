@@ -24,8 +24,7 @@ decide which log level to use for any given message:
 
 * **FATAL** Like *ERROR*, but bad enough to kill everything, and doesn't come back when you grep for *ERROR*.
 * **ERROR** Something has gone wrong and you should know about it.
-* **WARN** Is it less important than *ERROR* or more important than *INFO*? Who
-knows? Probably not the person who plumped for *WARN*.
+* **WARN** Stuff that's probably more important than *INFO*, but not quite as important as *ERROR*.
 * **NOTICE** For info you still want after turning off *INFO* because somebody
 cluttered *INFO* up with *DEBUG* stuff.
 * **INFO** The default. Normal level logging.

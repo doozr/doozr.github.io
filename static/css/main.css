@@ -81,6 +81,7 @@ div.content {
     border-top: 1px solid #E6E6E6;
     margin-top: 5px;
     padding-top: 5px;
+    text-align: justify;
 }
 
 div.content pre {

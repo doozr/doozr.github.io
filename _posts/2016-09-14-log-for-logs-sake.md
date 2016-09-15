@@ -6,36 +6,40 @@ categories: [go,coding]
 ---
 
 There are a lot of opinions on logging. From 12 factor apps that should only
-print directly to stdout to full blown logging *frameworks* that not only
-abstract the concept of logging inputs, outputs, formats and levels, they even
-abstract the concept of logging frameworks themselves. I'm looking at you, Slf4j
-(Simple(!) Logging Facade 4 Java).
+print directly to stdout to full blown logging frameworks that not only abstract
+the concept of inputs, outputs, formats and levels, they even abstract the
+concept of *logging frameworks themselves*. Slf4j, I'm looking at you.
 
 Go has an opinionated take on logging which is this: there are only two log
-levels; stuff worth logging, and stuff you shouldn't log. There is a lot to be
-said for this, but maybe it goes a little too far? Go's logger has no concept of
-a log level so anything you log will be logged. It's good to have that
-certainty, but it could be nice to have developer-friendly debug output too.
+levels; stuff worth logging, and stuff you shouldn't log.
+
+There is a lot to be said for this, but maybe it goes a little too far? Go's
+logger has no concept of a log level so anything you log will be logged. It's
+good to have that certainty, but it could be nice to have developer-friendly
+debug output too.
 
 ## On The Level
 
 The traditional log levels can be confusing and muddled, and it's often hard to
 decide which log level to use for any given message:
 
-* **FATAL** Like *ERROR*, but bad enough to kill everything, and doesn't come back when you grep for *ERROR*.
+* **FATAL** Something has gone *really* wrong. Doesn't appear when you grep for
+*ERROR*.
 * **ERROR** Something has gone wrong and you should know about it.
-* **WARN** Stuff that's probably more important than *INFO*, but not quite as important as *ERROR*.
+* **WARN** Stuff that's probably more important than *INFO*, but not quite as important as *ERROR*, but nobody wanted to commit either way.
 * **NOTICE** For info you still want after turning off *INFO* because somebody
-cluttered *INFO* up with *DEBUG* stuff.
-* **INFO** The default. Normal level logging.
-* **DEBUG** Developer stuff. Handy for turning on sometimes, but mostly not.
+cluttered up *INFO* with *DEBUG* stuff.
+* **INFO** Something has happened, and you should know about it.
+* **DEBUG** Something of interest to the developer has happened, and they should
+know about it.
 * **TRACE** Really, really, really, ridiculously low level stuff.
 
 Log levels are often turned off because somebody put too much logging at the
 wrong level. If the logging wastes loads of space with repetitive or useless
 minutiae then it can get hard to read, so turning off lower log levels can be a
 way to combat it. In reality, though, this is evidence that you need to improve
-the quality of your log lines, not arbitrarily limit quantity.
+the quality of your log lines or standardise on a smaller set of levels, not
+arbitrarily limit quantity.
 
 ## So what then?
 

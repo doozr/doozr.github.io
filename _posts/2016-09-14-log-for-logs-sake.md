@@ -48,14 +48,15 @@ middle one, the *DEBUG* level?
 I don't want to have to install a full-blown logging framework just to be able
 to turn on or off what amount to my developers' notes. The built-in Go logger is
 perfectly acceptable to me for most of my logging needs. I just need something
-that will give me the ability to turn on a lower level of logs. And so I wrote
-[jot](http://github.com/doozr/jot).
+that will give me the ability to write debug logs as easily as I can write
+normal logs. And so I wrote [jot](http://github.com/doozr/jot).
 
 ## Jot
 
 Jot is an additional logger that sits on top of the Go logger (or anything that
 can print) and allows me to add log lines that, by default, simply never show
-up.
+up. It is effectively a log library that, like `log`, only supports one log
+level. And in this case that log level is *DEBUG*.
 
 Consider this function.
 
@@ -98,7 +99,5 @@ detailed information will appear helping to diagnose synchronisation issues and
 to see details of the exact data arriving.
 
 If you think Jot is useful have a look at the docs on the [github
-project](http://github.com/doozr/jot) and give it a whirl. I've been considering
-adding a feature that allows enabling the the standard Jotter only for specific
-packages rather than a on/off switch, but haven't hit a real world use case for
-it yet. Any comments, bug reports, patches or ideas gratefully accepted.
+project](http://github.com/doozr/jot) and give it a whirl. Any comments, bug
+reports, patches or ideas gratefully accepted.

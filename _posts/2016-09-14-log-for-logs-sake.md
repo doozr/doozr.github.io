@@ -5,12 +5,12 @@ date: 2016-09-14 22:00:00 +0100
 categories: [go,coding]
 ---
 
+![I'm a logger and I'm OK](/images/log_for_logs_sake/logging.jpg){:style="float: right;margin-right: 7px;margin-top: 7px;"}
+
 There are a lot of opinions on logging. From 12 factor apps that should only
 print directly to stdout to full blown logging frameworks that not only abstract
 the concept of inputs, outputs, formats and levels, they even abstract the
 concept of *logging frameworks themselves*. Slf4j, I'm looking at you.
-
-![I'm a logger and I'm OK](/images/log_for_logs_sake/logging.jpg){:style="float: right;margin-right: 7px;margin-top: 7px;"}
 
 Go has an opinionated take on logging which is this: there are only two log
 levels; stuff worth logging, and stuff you shouldn't log.

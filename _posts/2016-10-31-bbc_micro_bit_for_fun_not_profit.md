@@ -74,7 +74,7 @@ specifically for coding the Micro:bit's various interfaces. It supports driving
 the 5x5 display as a tiny set of pixels, of handling the buttons and all the
 analogue and digital wizardry you might want, and even the I<super>2</super>C
 stuff and what-have-you in the more advanced end. There's even a rudimentary
-music and speed synthesis module if you attach your own speaker.
+music and speech synthesis module if you attach your own speaker.
 
 To demonstrate, here is a basic sine wave that animates across the screen.
 

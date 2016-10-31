@@ -137,8 +137,10 @@ was interesting ...)
 ![Mu](/images/bbc_micro_bit_for_fun_not_profit/mu.png){:style="max-width: 100%; margin-left: auto; margin-right: auto; display: block;"}
 
 Just to be flash I did a bit extra and made a program that displays animated
-swirling patterns based on intersecting sine and cosine waves. Press the
-buttons to randomise each of the two waves.
+swirling patterns based on intersecting sine and cosine waves. The pixels on the
+5x5 display have 9 brightness levels so those are used to indicate the value.
+Press the buttons to randomise each of the two waves. Not quite the demos
+of yesteryear but a start!
 
     {% highlight python %}
     from microbit import *

@@ -176,6 +176,10 @@ of yesteryear but a start!
         sleep(10)
     {% endhighlight %}
 
+This terribly jerky GIF will give some basic idea of how it looks.
+
+![Mu](/images/bbc_micro_bit_for_fun_not_profit/swirly.gif){:style="max-width: 100%; margin-left: auto; margin-right: auto; display: block;"}
+
 That's the thing with the Micro:bit. It really is a lot of fun and the
 super low barrier to entry makes "just one more thing" so easy to get
 carried away with.

@@ -5,7 +5,7 @@ date: 2016-10-31 22:00:00 +0100
 categories: [microbit, coding, electronics]
 ---
 
-![Micro:bit](/images/bbc_micro_bit_for_fun_not_profit/microbit.jpg){:style="float: right;margin-right: 7px;margin-top: 7px;"}
+![Micro:bit](/images/bbc_micro_bit_for_fun_not_profit/microbit.jpg){:style="float: right; margin: 7px;"}
 
 I recently picked up a BBC Micro:bit, ostensibly for the kids, but also
 because I really wanted to play with one. I've got a Raspberry PI as has, I
